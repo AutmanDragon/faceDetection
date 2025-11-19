@@ -1,0 +1,76 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+[data-bs-theme="light"] .date-picker::-webkit-calendar-picker-indicator {
+  filter: none;
+}
+
+/* สำหรับ Dark Mode: กลับสีไอคอนให้เป็นสีขาว */
+[data-bs-theme="dark"] .date-picker::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+[data-bs-theme="light"] .date-picker::-webkit-calendar-picker-indicator {
+  filter: none;
+}
+
+/* สำหรับ Dark Mode: กลับสีไอคอนให้เป็นสีขาว */
+[data-bs-theme="dark"] .date-picker::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+[data-bs-theme="dark"] .date-picker {
+  color-scheme: dark;
+}
+
+/* สำหรับ Light Mode: บอกเบราว์เซอร์ให้ใช้ UI สีสว่างสำหรับปฏิทิน (ค่าปกติ) */
+[data-bs-theme="light"] .date-picker {
+  color-scheme: light;
+}
+
+/* ส่วนนี้เป็น Fallback สำหรับเบราว์เซอร์รุ่นเก่ามากๆ ที่อาจไม่รู้จัก color-scheme
+  แต่เบราว์เซอร์สมัยใหม่ส่วนใหญ่จะใช้วิธีด้านบน ซึ่งดีกว่า 
+*/
+@supports not (color-scheme: dark) {
+  [data-bs-theme="dark"] .date-picker::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+  }
+}
