@@ -39,3 +39,23 @@ https://firebase.google.com/docs/reference/admin/python
 https://console.firebase.google.com/project/face-track-b68c8/overview
 
 https://youtu.be/k38K-atV_UM
+
+
+----------------------------------
+all iot step run 
+--------------------
+	iot
+cd face-track/server
+source face_rec/bin/activate
+python face_detection.py
+
+-----------------------
+	web
+cd server 
+npm run dev
+------------------------
+	server
+.\.venv\Scripts\activate
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+
